@@ -1,10 +1,12 @@
 'use strict';
 
 class LearningFrontend {
+
     constructor() {
         this.firstName = "Maxim";
         this.lastName  = "Kozachenko";
     }
+
     average(){
         let sum = 0,arr;
         arr = prompt("Введите числа").split(",");
@@ -51,6 +53,12 @@ class LearningFrontend {
         }else{
             console.log("Это обычное слово!")
         }
+    }
+
+    addOneintoArray(){
+        let myarr = [55,234,22,123,654];
+        for (let i = 0; i < myarr.length; myarr[i] += 1, i++);
+        console.log(myarr);
     }
 }
 
