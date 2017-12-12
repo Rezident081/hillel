@@ -2,14 +2,9 @@
 
 class LearningFrontend {
 
-    constructor() {
-        this.firstName = "Maxim";
-        this.lastName  = "Kozachenko";
-    }
-
-    average(){
-        let sum = 0,arr;
-        arr = prompt("Введите числа").split(",");
+    static average(){
+        let sum = 0;
+        const arr = prompt("Введите числа").split(",");
 
         for(var i = 0; i < arr.length; i++){
             sum += Number(arr[i]);
@@ -19,12 +14,12 @@ class LearningFrontend {
         console.info("Среднее арифметическое = "+ parseInt(sum));
     }
 
-    exchange(){
+    static exchange(){
         let axchange = Number(prompt("Введите значения в долларах"));
         console.info("В "+ axchange +" долларах "+ axchange * 27 + " грн");
     }
 
-    workPermit(){
+    static workPermit(){
         let access = false;
         const requirements = {};
         requirements.firstName = String(prompt("Введите ваше имя"));
@@ -44,10 +39,9 @@ class LearningFrontend {
 
     }
 
-    isPalindrom(){
-        let str, strReverse;
-        str = String(prompt("Введите слово: "));
-        strReverse = str.split('').reverse().join('');
+    static isPalindrom(){
+        const str = String(prompt("Введите слово: "));
+        const strReverse = str.split('').reverse().join('');
         if(str == strReverse){
             console.log("Это слово палиндром!");
         }else{
@@ -55,7 +49,7 @@ class LearningFrontend {
         }
     }
 
-    addOneintoArray(){
+    static addOneIntoArray(){
         let myarr = [55,234,22,123,654];
         for (let i = 0; i < myarr.length; myarr[i] += 1, i++);
         console.log(myarr);
