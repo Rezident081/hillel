@@ -72,9 +72,9 @@ class LearningFrontend {
     }
 
     static transformToNumber(subj){
-        subj = isNaN(subj) ? true : subj;
+        let result = isNaN(subj) ? true : subj;
 
-        return Number(subj);
+        return Number(result);
     }
 }
 
