@@ -3,12 +3,10 @@
 class LearningFrontend {
 
     static average(){
-        let sum = 0;
         const arr = [2,4,5,12,23];
-
-        for(let i = 0; i < arr.length; i++){
-            sum += arr[i];
-        }
+        let sum = arr.reduce(function (prev, curr) {
+            return prev + curr;
+        });
 
         sum = Number(sum/arr.length);
 
