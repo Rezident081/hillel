@@ -10,5 +10,3 @@ Array.prototype.setAllValuesToNumber = function(){
     })
 
 }
-
-console.log(Array(1,2,"3333").setAllValuesToNumber());
