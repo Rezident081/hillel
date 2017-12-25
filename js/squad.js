@@ -49,7 +49,7 @@ Squad.prototype.getReadyToMoveResources = function(index){
 
 Squad.prototype.combineResources = function(arr){
 
-    this.squad.push.apply(this.squad, arr);
+    this.squad = this.squad.concat(arr);
 }
 
 Squad.prototype.cloneResource = function(arr){
@@ -57,4 +57,27 @@ Squad.prototype.cloneResource = function(arr){
     return new Squad(arr);
 }
 
+Squad.prototype.squadAttackedBy = function (enemy) {
+
+    var maxValue = Math.max(this.squad.length, enemy.squad.length );
+    var randomUnit = Math.round(Math.random() * maxValue );
+
+    if( this.squad[randomUnit] === undefined || enemy.squad[randomUnit] === undefined ){
+
+        throw new Error('Unit does not exist in Squad');
+    }
+
+    this.squad[randomUnit].attackedBy(enemy.squad[randomUnit]);
+
+    if(this.squad[randomUnit].healthPoint === 0 || enemy.squad[randomUnit].healthPoint === 0){
+
+        throw new Error('The Unit died');
+    }
+
+    this.squad = this.squad.filter(function (value) {
+        return value.healthPoint > 0;
+    })
+
+    return this.squad;
+}
 
