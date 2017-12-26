@@ -61,7 +61,7 @@ Squad.prototype.squadAttackedBy = function (enemy) {
 
     var maxValue = Math.max(this.squad.length, enemy.squad.length );
     var randomUnit = Math.round(Math.random() * maxValue );
-
+    var unitState;
     if( this.squad[randomUnit] === undefined || enemy.squad[randomUnit] === undefined ){
 
         throw new Error('Unit does not exist in Squad');
@@ -69,9 +69,8 @@ Squad.prototype.squadAttackedBy = function (enemy) {
 
     this.squad[randomUnit].attackedBy(enemy.squad[randomUnit]);
 
-    if(this.squad[randomUnit].healthPoint === 0 || enemy.squad[randomUnit].healthPoint === 0){
-
-        throw new Error('The Unit died');
+    if(this.squad[randomUnit].healthPoint === 0){
+        throw new Error("Unit dead");
     }
 
     this.squad = this.squad.filter(function (value) {
