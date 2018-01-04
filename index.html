@@ -6,48 +6,9 @@
   </head>
   <body>
 
-    <script type="text/javascript" src="js/unit.js"></script>
-    <script type="text/javascript" src="js/squad.js"></script>
-
-    <script>
-        function generateSquad (type, health, distance, damage){
-            var arr = [];
-            for(var i = 0; i < 10; i++){
-                arr[i] = new Unit(type, health, distance, damage);
-            }
-            return arr;
-        }
-
-        var Squad_1 = new Squad(generateSquad("spear", 120, 120, 35)),
-            Squad_2 = new Squad(generateSquad("knight", 135, 80, 30));
-
-        var intervalID = setInterval(function () {
-            try{
-
-                if(Squad_1.squad.length === 0 || Squad_2.squad.length === 0 ){
-                    console.log("Game over");
-
-                    if(Squad_1.squad.length > Squad_2.squad.length){
-                        console.info("First squad win");
-                    }else{
-                        console.info("Second squad win");
-                    }
-
-                    clearInterval(intervalID);
-                    return;
-                }
-
-                Squad_1.squadAttackedBy(Squad_2);
-                Squad_2.squadAttackedBy(Squad_1);
-
-            }catch (err){
-                console.error(err.message);
-            }
-
-        },100);
-
-
-    </script>
+    <script type="text/javascript" src="js/army/unit.js"></script>
+    <script type="text/javascript" src="js/army/squad.js"></script>
+    <script type="text/javascript" src="js/army/battlefield.js"></script>
 
   </body>
 </html>

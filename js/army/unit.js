@@ -29,6 +29,11 @@ Unit.prototype.clone = function(){
 Unit.prototype.attackedBy = function(enemy){
 
     this.healthPoint = this.healthPoint - enemy.damage;
-    return this.healthPoint > 0 ? this.healthPoint : 0;
+
+    if(!this.healthPoint > 0){
+
+        this.healthPoint = 0;
+        throw new Error("Unit's dying");
+    }
 }
 
